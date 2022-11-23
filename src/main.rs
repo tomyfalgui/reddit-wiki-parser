@@ -21,9 +21,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 
 fn fetch_subreddit_wiki(subreddit: &str) -> Result<String, Box<dyn std::error::Error>> {
-    let resp =
-        reqwest::blocking::get(format!("https://www.reddit.com/r/{}/wiki/index", subreddit))?
-            .text()?;
+    let resp = reqwest::blocking::get(format!(
+        "https://old.reddit.com/r/{}/wiki/index",
+        subreddit
+    ))?
+    .text()?;
 
     Ok(resp)
 }
